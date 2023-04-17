@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  node:
+    build:
+      context: .
+    ports:
+      - "7777:7777"
+
+  nginx:
+    restart: always
+    build: 
+      context: ./nginx
+    ports:
+      - "90:90"
+    depends_on:
+      - node
